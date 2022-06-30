@@ -15,7 +15,7 @@ sudo docker compose up --build -d
 ## Examples
 
 Request:
-```json
+```bash
 GET http://localhost:8080/books?language=English&genre=self-help&genre=business&sort_by=published_at.desc
 ```
 
