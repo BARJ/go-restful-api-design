@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  go-books-application:
+    container_name: go-books-application
+    build: ./
+    restart: on-failure
+    ports:
+      - 8080:8080
+    networks:
+      - go-books-network
+  go-books-database:
+    container_name: go-books-database
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_DB=go-books
+      - POSTGRES_USER=go-books
+      - POSTGRES_PASSWORD=go-books
+    networks:
+      - go-books-network
+  go-books-database-migrate:
+    container_name: go-books-database-migrate
+    image: flyway/flyway:8.5-alpine
+    restart: on-failure
+    command: -url=jdbc:postgresql://go-books-database:5432/go-books -schemas=public -user=go-books -password=go-books -connectRetries=60 migrate
+    volumes:
+      - ./migration:/flyway/sql
+    networks:
+      - go-books-network
+networks:
+  go-books-network:

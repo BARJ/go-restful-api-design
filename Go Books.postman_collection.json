@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "0384a516-321d-4f24-a6c9-372a44fe82e1",
+		"name": "Go Books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1556259"
+	},
+	"item": [
+		{
+			"name": "Status Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/status/ping",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"status",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/books",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "harry potter",
+							"disabled": true
+						},
+						{
+							"key": "language",
+							"value": "Dutch",
+							"disabled": true
+						},
+						{
+							"key": "max_reading_age",
+							"value": "8",
+							"disabled": true
+						},
+						{
+							"key": "isbn",
+							"value": "074754624X",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "self-help",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "business",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "Carreyrou",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "Thorne",
+							"disabled": true
+						},
+						{
+							"key": "publisher",
+							"value": "harper",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "title.desc",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "published_at.asc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080"
+		}
+	]
+}
